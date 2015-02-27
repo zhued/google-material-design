@@ -8,14 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/FezVrasta/bootstrap-material-design.git"
+    "url": "https://github.com/zhued/google-material-design.git"
   },
-  "author": "Federico Zivolo",
-  "license": "https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md",
-  "bugs": {
-    "url": "https://github.com/FezVrasta/bootstrap-material-design/issues"
-  },
-  "homepage": "https://github.com/FezVrasta/bootstrap-material-design",
+  "author": "Edward Zhu",
+  "license": "https://github.com/zhued/google-material-design/blob/gh-pages/LICENSE.md",
+  "homepage": "https://github.com/zhued/google-material-design",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^1.0.1",
