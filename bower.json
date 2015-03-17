@@ -1,48 +1,55 @@
 {
-  "name": "bootstrap-material-design",
-  "version": "0.2.0",
-  "homepage": "http://fezvrasta.github.io/bootstrap-material-design",
-  "authors": [
-    "Federico Zivolo <info@mywebexpression.com>"
+  "name": "Materialize",
+  "version": "0.95.3",
+  "description": "A modern responsive front-end framework based on Material Design",
+  "keywords": [
+    "css",
+    "js",
+    "sass",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "ux",
+    "material",
+    "design"
   ],
-  "description": "Material Design theme for Bootstrap 3",
   "main": [
-    "dist/css/material.css",
-    "dist/js/material.js",
-    "dist/css/ripples.css",
-    "dist/js/ripples.js",
-    "dist/fonts/Material-Design-Icons.eot",
-    "dist/fonts/Material-Design-Icons.svg",
-    "dist/fonts/Material-Design-Icons.ttf",
-    "dist/fonts/Material-Design-Icons.woff"
+    "bin/materialize.css",
+    "bin/materialize.js",
+    "font/material-design-icons/Material-Design-Icons.eot",
+    "font/material-design-icons/Material-Design-Icons.svg",
+    "font/material-design-icons/Material-Design-Icons.ttf",
+    "font/material-design-icons/Material-Design-Icons.woff",
+    "font/roboto/Roboto-Bold.ttf",
+    "font/roboto/Roboto-Light.ttf",
+    "font/roboto/Roboto-Medium.ttf",
+    "font/roboto/Roboto-Regular.ttf",
+    "font/roboto/Roboto-Thin.ttf"
   ],
   "ignore": [
-    "test",
-    "screenshots",
-    "demo",
-    ".editorconfig",
+    "jade/",
     ".gitignore",
-    ".jshintrc",
-    ".travis.yml",
-    "CONTRIBUTING.md",
-    "Gruntfile.json",
-    "index.html",
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "CNAME",
+    "css/",
+    "bower.json",
+    "README.md",
+    "images/",
+    "js/jquery.timeago.js",
+    "js/init.js",
+    "js/prism.js",
+    "res/",
+    "sass/style.scss",
+    "sass/ghpages-materialize.scss",
+    "**/*.html",
+    "**/*.zip",
+    "**/*.txt",
+    "sitemap.xml",
+    "package.json",
+    "Gruntfile.js"
+
   ],
-  "keywords": [
-    "material",
-    "design",
-    "bootstrap",
-    "theme",
-    "google",
-    "android"
-  ],
-  "license": "https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md",
   "dependencies": {
-    "jquery": "~2.1.1"
-  }
+        "jquery": ">=2.1.1"
+    }
 }

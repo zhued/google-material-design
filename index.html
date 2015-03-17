@@ -1,1760 +1,256 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="Materialize is a modern responsive CSS framework based on Material Design by Google. ">
     <title>Google Material Design</title>
-
-    <!-- Mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Twitter Bootstrap -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Material Design for Bootstrap -->
-    <link href="dist/css/material-wfont.min.css" rel="stylesheet">
-    <link href="dist/css/ripples.min.css" rel="stylesheet">
-
-    <!-- Dropdown.js -->
-    <link href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">
-
-    <!-- Page style -->
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      .header-panel {
-        background-color: #009587;
-        height: 144px;
-        position: relative;
-        z-index: 3;
-      }
-      .header-panel div {
-        position: relative;
-        height: 100%;
-      }
-      .header-panel h1 {
-        color: #FFF;
-        font-size: 20px;
-        font-weight: 400;
-        position: absolute;
-        bottom: 10px;
-        padding-left: 35px;
-      }
-
-      .menu {
-        overflow: auto;
-        padding: 0;
-      }
-      .menu, .menu * {
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-      .menu ul {
-        padding: 0;
-        margin: 7px 0;
-      }
-      .menu ul li {
-        list-style: none;
-        padding: 20px 0 20px 50px;
-        font-size: 15px;
-        font-weight: normal;
-        cursor: pointer;
-      }
-      .menu ul li.active {
-        background-color: #dedede;
-        position: relative;
-      }
-      .menu ul li a {
-        color: rgb(51, 51, 51);
-        text-decoration: none;
-      }
-
-      .pages {
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 4;
-        padding: 0;
-        overflow: auto;
-      }
-      .pages > div {
-        padding: 0 5px;
-        padding-top: 64px;
-      }
-
-      .pages .header {
-        color: rgb(82, 101, 162);
-        font-size: 24px;
-        font-weight: normal;
-        margin-top: 5px;
-        margin-bottom: 60px;
-        letter-spacing: 1.20000004768372px;
-      }
-
-      .page {
-        transform: translateY(1080px);
-        transition: transform 0 linear;
-        display: none;
-        opacity: 0;
-        font-size: 16px;
-      }
-
-      .page.active {
-        transform: translateY(0px);
-        transition: all 0.3s ease-out;
-        display: block;
-        opacity: 1;
-      }
-
-      #opensource {
-        color: rgba(0, 0, 0, 0.62);
-        position: fixed;
-        margin-top: 50px;
-        margin-left: 50px;
-        z-index: 100;
-      }
-
-      #source-modal h4 {
-        color: black;
-      }
-    </style>
-
-
-    <!-- jQuery -->
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+    <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
+    <!--  Android 5 Chrome Color-->
+    <meta name="theme-color" content="#EE6E73">
+    <!-- CSS-->
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+    <script>
+      window.liveSettings = {
+        api_key: "a0b49b34b93844c38eaee15690d86413",
+        picker: "bottom-right",
+        detectlang: true,
+        dynamic: true,
+        autocollect: true
+      };
+    </script>
+    <script src="//cdn.transifex.com/live.js"></script>
   </head>
   <body>
-
-    <div class="header-panel shadow-z-2">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-3">
-            <h1>Google Material Design</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container-fluid main">
-      <div class="row">
-        <nav class="col-xs-3 menu">
-          <ul>
-            <li class="active withripple" data-target="#intro">Introduction</li>
-            <!-- <li><a href="http://zhued.github.com/bootstrap-material-design/bootstrap-elements.html" target="_blank">Bootstrap elements <i class="mdi-action-open-in-new"></i></a></li> -->
-            <li class="withripple" data-target="#layout">Properties/Layouts</li>
-            <li class="withripple" data-target="#animations">Animations/Motion</li>
-            <li class="withripple" data-target="#style">Style</li>
-            <li class="withripple" data-target="#sources">Sources</li>
-            <!-- NOT MY STUFF AFTER THIS -->
-            <li class="withripple" data-target="#material-colors">Material Colors</li>
-            <li class="withripple" data-target="#checkbox">Checkbox</li>
-            <li class="withripple" data-target="#radio-button">Radio Button</li>
-            <li class="withripple" data-target="#toggle-button">Toggle Button</li>
-            <li class="withripple" data-target="#input">Input</li>
-            <li class="withripple" data-target="#navbar">Navbar</li>
-            <li class="withripple" data-target="#progress-bar">Progress Bar</li>
-            <li class="withripple" data-target="#slider">Slider</li>
-            <li class="withripple">Tabs (To do)</li>
-            <li class="withripple" data-target="#button">Button</li>
-            <li class="withripple">Icon button (To do)</li>
-            <li class="withripple" data-target="#floating-action-button">Floating Action Button</li>
-            <li class="withripple" data-target="#dropdown">Dropdown (Work in progress)</li>
-            <li class="withripple" data-target="#dropdown-menu">Dropdown Menu</li>
-            <li class="withripple" data-target="#dialog">Dialog</li>
-            <li class="withripple" data-target="#shadow">Shadow</li>
+    <header>
+      <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav"><i class="mdi-navigation-menu"></i></a></div>
+      <ul id="nav-mobile" class="side-nav fixed">
+        <li class="logo"><a id="logo-container" href="http://materializecss.com/" class="brand-logo">
+            <object id="front-page-logo" type="image/svg+xml" data="res/materialize.svg">Your browser does not support SVG</object></a></li>
+        <li class="bold"><a href="about.html" class="waves-effect waves-teal">About</a></li>
+        <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Getting Started</a></li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">CSS</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="color.html">Color</a></li>
+                  <li><a href="grid.html">Grid</a></li>
+                  <li><a href="helpers.html">Helpers</a></li>
+                  <li><a href="media-css.html">Media</a></li>
+                  <li><a href="sass.html">Sass</a></li>
+                  <li><a href="shadow.html">Shadow</a></li>
+                  <li><a href="table.html">Table</a></li>
+                  <li><a href="typography.html">Typography</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Components</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="badges.html">Badges</a></li>
+                  <li><a href="buttons.html">Buttons</a></li>
+                  <li><a href="cards.html">Cards</a></li>
+                  <li><a href="collections.html">Collections</a></li>
+                  <li><a href="footer.html">Footer</a></li>
+                  <li><a href="forms.html">Forms</a></li>
+                  <li><a href="icons.html">Icons</a></li>
+                  <li><a href="navbar.html">Navbar</a></li>
+                  <li><a href="pagination.html">Pagination</a></li>
+                  <li><a href="preloader.html">Preloader</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">JavaScript</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="collapsible.html">Collapsible</a></li>
+                  <li><a href="dialogs.html">Dialogs</a></li>
+                  <li><a href="dropdown.html">Dropdown</a></li>
+                  <li><a href="media.html">Media</a></li>
+                  <li><a href="modals.html">Modals</a></li>
+                  <li><a href="parallax.html">Parallax</a></li>
+                  <li><a href="pushpin.html">Pushpin</a></li>
+                  <li><a href="scrollfire.html">ScrollFire</a></li>
+                  <li><a href="scrollspy.html">Scrollspy</a></li>
+                  <li><a href="side-nav.html">SideNav</a></li>
+                  <li><a href="tabs.html">Tabs</a></li>
+                  <li><a href="transitions.html">Transitions</a></li>
+                  <li><a href="waves.html">Waves</a></li>
+                </ul>
+              </div>
+            </li>
           </ul>
-        </nav>
-        <div class="pages col-xs-9">
-          <div class="col-xs-10">
+        </li>
+        <li class="bold"><a href="http://materializecss.com/mobile.html" class="waves-effect waves-teal">Mobile</a></li>
+        <li class="bold"><a href="showcase.html" class="waves-effect waves-teal">Showcase</a></li>
+      </ul>
+    </header>
 
 
 
 
-<!-- 
-******
-                              Introduction
-******
--->
 
-            <div class="well page active" id="intro">
-              <h1 class="header">Introduction</h1>
-              <p>The modern world can’t seem to live without their phones and computers. So much can be done with this technology, and we rely so heavily on the results to show up right at our fingertips. But these “results” are only useful when we can understand and comprehend each action, reaction, and outcome on our screens.
-              </p> 
 
-              <br>
 
-              <p>Technology, phones, and gadgets have surrounded me for most of my life, and one recurring factor that I constantly see in many applications is inconsistent design. One portion of a website may have a certain format, yet another end may have a completely different layout. Apps may seem unresponsive because it fails to show any feedback to the users with what it’s doing. 
-              </p>
 
-              <br>
 
-              <p>Google, however, has a vision for clear, consistent, and responsive design guidelines. They call it Material Design. 
-              </p>
 
-              <br>
-              <img src="/images/introduction_layers.png" alt="Layers" style="width:auto;height:280px">
 
-              <img src="/images/introduction_bold.png" alt="Layers" style="width:auto;height:280px">
 
-              <img src="/images/introduction_motion.png" alt="Layers" style="width:auto;height:280px">
 
-              
 
-              <br>
-              <br>
-              <br>
 
-              <p>“Material” guidelines revolve around creating a visual language that encompasses good design and unifies the same designs across different platforms and device sizes. Although most prominent in Google Apps on mobile and web, many designers have taking the initiative to incorporate material design into their apps, especially on Android market, to create a more central, unified environment. 
-              </p>
 
-              <br>
 
-              <p>Different principles of Material Design can be found in the side bar to the left. This site, although not perfect, incorporates this design within a browser to the best of its abilities.
-              </p>
 
-              <br>
 
-              <img src="/images/introduction_reveal.png" alt="Layers" style="width:100%;height:100%">
 
-            </div>
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-******
-                                PROPERTIES/LAYOUTS
-******
--->
-
-
-            <div class="well page active" id="layout">
-              <h1 class="header">Properties/Layouts</h1>
-              <p>We see in a 3D world, where physical matter has distance from the user, some closer and some farther away; this creates a perception and references of space. However, our computer or phone screens are pretty flat, making it difficult to emulate this natural vision of humans. 
-              </p> 
-
-              <br>
-
-              <p>Why don’t we make apps be 3D then? Have 3D objects of different thicknesses and sizes to make the screen POP!!  
-              </p>
-
-              <br>
-
-              <img src="/images/layout_overdesigned.jpg" alt="Layers" style="width:auto;height:auto">
-
-              <img src="/images/layout_calc.jpg" alt="Layers" style="width:auto;height:auto">
-
-              <br>
-              <br>
-
-              <p>This is why we don’t. Just making objects pop out is unnatural for a flat screen, and quite frankly, it looks terrible.
-              </p>
-
-              <p>Material design doesn’t use 3D objects, but fills in a 3D space where all objects have an x, y, and z dimension as well as a uniform thickness of 1 dp (pretty much one pixel of thickness).
-              </p>
-
-              <br>
-              <video width="100%" height="100%" autoplay loop>
-                <source src="//material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0B0NGgBg38lWWSE9IaUpqYzlpSW8/whatismaterial-materialprop-physicalprop-020201_PaperShadow_Do_xhdpi_007.webm" type="video/webm">
-                <source src="//material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0B0NGgBg38lWWRWJfTERvdnM1bGc/whatismaterial-materialprop-physicalprop-020201_PaperShadow_Do_xhdpi_007.mp4" type="video/mp4">
-                Your browser does not support the video tag.. Or the video doesn't exists on the Google API anymore...
-              </video>
-
-              <br>
-              <br>
-
-              <p>This creates shadows from a “virtual” light, something that users are visibly familiar with.
-              </p>
-
-              <br>
-              <!--  -->
-              <!-- MAKE THE SHADOWS WORKKKK -->
-              <!--  -->
-              <br>
-
-
-              <p>To users, this is much more natural to the eyes and our depth perception. Instead of popping out at us, it seems as though there is an underlying structure inside the screen, as though the base layer is deeper inside, and other objects float at different heights.
-              </p>
-
-              <p>If something is farther away, then it’s less prominent or important, when it’s floating higher/closer to you, it means it should be the sight of attention and interact-able.
-              </p>
-
-              <br>
-              <img src="//material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7XzNPLWJJYWw4ZVk/whatismaterial_3d_elevation_shadow1.png" style="width:auto;height:280px">
-              <img src="//material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0B8v7jImPsDi-eGtOTkZLLWpJbXc/whatismaterial_3d_elevation_shadow2.png" style="width:auto;height:280px">
-              <img src="//material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0B8v7jImPsDi-RmRfeDNPVnFld0U/whatismaterial_3d_elevation_shadow3.png" style="width:auto;height:280px">
-              <br>
-              <br>
-              <br>
-
-
-              <p>In the layout without shadows, its just flat and unclear as to what layer is more important. But as the shadows become more prominent, you can see the differences in elevation and different functions of each object.
-              </p>
-
-              <p>Material Design creates a simple, yet intuitive layout that a majority of users will be familiar with and understand from the get-go.
-              </p>
-
-              
-
-              <br>
-
-              
-
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-******
-                                ANIMATIONS
-******
--->
-
-
-
-
-
-            <div class="well page active" id="animations">
-              <h1 class="header">Animations/Motion</h1>
-              <p>The modern world can’t seem to live without their phones and computers. So much can be done with this technology, and we rely so heavily on the results to show up right at our fingertips. But these “results” are only useful when we can understand and comprehend each action, reaction, and outcome on our screens.
-              </p> 
-
-              <br>
-
-              <p>Technology, phones, and gadgets have surrounded me for most of my life, and one recurring factor that I constantly see in many applications is inconsistent design. One portion of a website may have a certain format, yet another end may have a completely different layout. Apps may seem unresponsive because it fails to show any feedback to the users with what it’s doing. 
-              </p>
-
-              <br>
-
-              <p>Google, however, has a vision for clear, consistent, and responsive design guidelines. They call it <a href="http://www.google.com/design/spec/material-design/" target="_blank">Material Design</a>. 
-              </p>
-
-
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-******
-                                  STYLE
-******
--->
-
-
-
-
-
-            <div class="well page active" id="style">
-              <h1 class="header">Style</h1>
-              <p>The modern world can’t seem to live without their phones and computers. So much can be done with this technology, and we rely so heavily on the results to show up right at our fingertips. But these “results” are only useful when we can understand and comprehend each action, reaction, and outcome on our screens.
-              </p> 
-
-              <br>
-
-              <p>Technology, phones, and gadgets have surrounded me for most of my life, and one recurring factor that I constantly see in many applications is inconsistent design. One portion of a website may have a certain format, yet another end may have a completely different layout. Apps may seem unresponsive because it fails to show any feedback to the users with what it’s doing. 
-              </p>
-
-              <br>
-
-              <p>Google, however, has a vision for clear, consistent, and responsive design guidelines. They call it <a href="http://www.google.com/design/spec/material-design/" target="_blank">Material Design</a>. 
-              </p>
-
-
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-******
-                                  SOURCES
-******
--->
-
-
-
-            <div class="well page active" id="sources">
-              <h1 class="header">Sources</h1>
-              <p>The modern world can’t seem to live without their phones and computers. So much can be done with this technology, and we rely so heavily on the results to show up right at our fingertips. But these “results” are only useful when we can understand and comprehend each action, reaction, and outcome on our screens.
-              </p> 
-
-              <br>
-
-              <p>Technology, phones, and gadgets have surrounded me for most of my life, and one recurring factor that I constantly see in many applications is inconsistent design. One portion of a website may have a certain format, yet another end may have a completely different layout. Apps may seem unresponsive because it fails to show any feedback to the users with what it’s doing. 
-              </p>
-
-              <br>
-
-              <p>Google, however, has a vision for clear, consistent, and responsive design guidelines. They call it <a href="http://www.google.com/design/spec/material-design/" target="_blank">Material Design</a>. 
-              </p>
-
-
-            </div>
-
-
-
-
-<!-- ANOTHER PAGE -->
-
-
-
-
-
-
-            <div class="well page" id="checkbox">
-              <h1 class="header">Checkbox</h1>
-
-              <!-- Simple checkbox with label -->
-              <div class="sample1">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"> Notifications
-                  </label>
-                </div>
-                <p class="hint">Notify me about updates to apps or games that I've downloaded</p>
-              </div>
-
-              <!-- Simple checkbox with label, checked -->
-              <div class="sample1">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" checked> Auto-updates
-                  </label>
-                </div>
-                <p class="hint">Auto-update apps over wifi only</p>
-              </div>
-
-              <!-- Simple checkbox with label -->
-              <div class="sample1">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"> Clear search history
-                  </label>
-                </div>
-                <p class="hint">Remove all the searches you have ever performed</p>
-              </div>
-
-              <h2>Sound</h2>
-
-              <!-- Checkboxes with labels on the left -->
-              <div class="sample2">
-                <div class="text">Touch sounds</div>
-                <div class="checkbox checkbox-primary">
-                  <label>
-                    <input type="checkbox" checked>
-                  </label>
-                </div>
-              </div>
-              <div class="sample2">
-                <div class="text">Screen lock sound</div>
-                <div class="checkbox checkbox-primary">
-                  <label>
-                    <input type="checkbox">
-                  </label>
-                </div>
-              </div>
-              <div class="sample2">
-                <div class="text">Vibrate on touch</div>
-                <div class="checkbox checkbox-primary">
-                  <label>
-                    <input type="checkbox">
-                  </label>
-                </div>
-              </div>
-
-              <!-- Custom page style -->
-              <style>
-                #checkbox .sample1 label {
-                  font-weight: bold;
-                }
-                #checkbox .hint {
-                  padding-left: 45px;
-                  padding-top: 20px;
-                  font-weight: 400;
-                }
-                #checkbox .sample1 {
-                  padding-bottom: 20px;
-                }
-
-                #checkbox h2 {
-                  font-size: 18.7199993133545px;
-                  font-weight: bold;
-                  margin-bottom: 30px;
-                }
-
-                #checkbox .sample2 {
-                  width: 300px;
-                  clear: both;
-                  font-weight: 400;
-                }
-
-                #checkbox .sample2 {
-                  padding: 10px 0;
-                }
-                #checkbox .sample2 .text {
-                  display: inline-block;
-                }
-                #checkbox .sample2 .checkbox {
-                  float: right;
-                }
-              </style>
-            </div>
-            <div class="well page" id="radio-button">
-              <h1 class="header">Checkbox</h1>
-              <h2>Keep Wi-Fi on during sleep</h2>
-              <div class="sample1">
-                <div class="radio radio-success">
-                  <label>
-                    <input type="radio" name="sample1" value="option1" checked="">
-                    Always
-                  </label>
-                </div>
-                <div class="radio radio-success">
-                  <label>
-                    <input type="radio" name="sample1" value="option1">
-                    Only when plugged in
-                  </label>
-                </div>
-                <div class="radio radio-success">
-                  <label>
-                    <input type="radio" name="sample1" value="option1">
-                    Never
-                  </label>
-                </div>
-              </div>
-
-
-              <h2>Wi-Fi frequency band</h2>
-              <div class="sample2">
-                <div class="radio radio-primary">
-                  <label>
-                    <input type="radio" name="sample2" value="option1" checked="">
-                    Auto
-                  </label>
-                </div>
-                <div class="radio radio-primary">
-                  <label>
-                    <input type="radio" name="sample2" value="option1">
-                    5 GHz only
-                  </label>
-                </div>
-                <div class="radio radio-primary">
-                  <label>
-                    <input type="radio" name="sample2" value="option1">
-                    2.4 GHz only
-                  </label>
-                </div>
-              </div>
-
-              <style>
-                #radio-button h2 {
-                  font-size: 18.7199993133545px;
-                  font-weight: bold;
-                  margin-bottom: 30px;
-                  margin-top: 50px;
-                }
-                #radio-button .radio {
-                  margin: 20px 10px;
-                }
-              </style>
-            </div>
-            <div class="well page" id="toggle-button">
-
-              <h1 class="header">Toggle Button</h1>
-              <div class="togglebutton">
-                <label>
-                  Wi-Fi
-                  <input type="checkbox" checked>
-                </label>
-              </div>
-              <div class="togglebutton">
-                <label>
-                  Bluetooth
-                  <input type="checkbox">
-                </label>
-              </div>
-
-              <style>
-                #toggle-button h2 {
-                  font-size: 18.7199993133545px;
-                  font-weight: bold;
-                  margin-bottom: 30px;
-                  margin-top: 50px;
-                }
-                #toggle-button .togglebutton label {
-                  margin: 20px 10px;
-                  width: 200px;
-                }
-                #toggle-button .togglebutton .toggle {
-                  float: right;
-                }
-              </style>
-            </div>
-
-
-
-
-
-
-
-            <div class="well page" id="input">
-              <h1 class="header">Input</h1>
-              <div class="inputs">
-                <h2>Input</h2>
-                <input type="text" class="form-control" placeholder="label">
-                <input type="text" class="form-control floating-label" placeholder="floating label">
-
-                <h2>Textarea</h2>
-                <textarea class="form-control" placeholder="textarea label"></textarea>
-                <textarea class="form-control floating-label" placeholder="textarea floating label"></textarea>
-
-                <h2>Validation</h2>
-                <input type="email" class="form-control floating-label" placeholder="email">
-                <input type="number" class="form-control floating-label" placeholder="number">
-
-                <h2>Disabled</h2>
-                <input disabled type="text" class="form-control floating-label" placeholder="email">
-                <input disabled type="text" class="form-control floating-label" placeholder="number">
-
-                <h2>Hints</h2>
-                <input type="text" class="form-control floating-label" data-hint="Write here something cool" placeholder="label">
-                <input type="email" class="form-control floating-label" data-hint="A valid email should contain an @ symbol" placeholder="label">
-
-
-                <h2>Styling</h2>
-                <div class="form-group has-error">
-                  <input type="text" class="form-control form-control-success" placeholder="label">
-                  <input type="text" class="form-control form-control-success floating-label" placeholder="floating label">
-                </div>
-
-                <style>
-                  #input h2 {
-                    padding: 14px;
-                    font-size: 16px;
-                    font-weight: 400;
-                  }
-                  #input .inputs {
-                    width: 80%;
-                  }
-                  #input .form-control-wrapper {
-                    margin: 30px 0;
-                  }
-                </style>
-
-              </div>
-            </div>
-
-
-
-
-
-
-
-
-
-            <div class="well page" id="navbar">
-              <h1 class="header">Navbar</h1>
-
-              <div class="navbar navbar-default">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="javascript:void(0)">Brand</a>
-                </div>
-                <div class="navbar-collapse collapse navbar-responsive-collapse">
-                  <ul class="nav navbar-nav">
-                    <li class="active"><a href="javascript:void(0)">Active</a></li>
-                    <li><a href="javascript:void(0)">Link</a></li>
-                    <li class="dropdown">
-                      <a  href="http://zhued.github.io/bootstrap-material-design/bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0)">Action</a></li>
-                        <li><a href="javascript:void(0)">Another action</a></li>
-                        <li><a href="javascript:void(0)">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Dropdown header</li>
-                        <li><a href="javascript:void(0)">Separated link</a></li>
-                        <li><a href="javascript:void(0)">One more separated link</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <form class="navbar-form navbar-left">
-                    <input type="text" class="form-control col-lg-8" placeholder="Search">
-                  </form>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="javascript:void(0)">Link</a></li>
-                    <li class="dropdown">
-                      <a href="http://zhued.github.io/bootstrap-material-design/bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0)">Action</a></li>
-                        <li><a href="javascript:void(0)">Another action</a></li>
-                        <li><a href="javascript:void(0)">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="javascript:void(0)">Separated link</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="navbar navbar-warning">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-warning-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="javascript:void(0)">Brand</a>
-                </div>
-                <div class="navbar-collapse collapse navbar-warning-collapse">
-                  <ul class="nav navbar-nav">
-                    <li class="active"><a href="javascript:void(0)">Active</a></li>
-                    <li><a href="javascript:void(0)">Link</a></li>
-                    <li class="dropdown">
-                      <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0)">Action</a></li>
-                        <li><a href="javascript:void(0)">Another action</a></li>
-                        <li><a href="javascript:void(0)">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Dropdown header</li>
-                        <li><a href="javascript:void(0)">Separated link</a></li>
-                        <li><a href="javascript:void(0)">One more separated link</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <form class="navbar-form navbar-left">
-                    <input type="text" class="form-control col-lg-8" placeholder="Search">
-                  </form>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="javascript:void(0)">Link</a></li>
-                    <li class="dropdown">
-                      <a  href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0)">Action</a></li>
-                        <li><a href="javascript:void(0)">Another action</a></li>
-                        <li><a href="javascript:void(0)">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="javascript:void(0)">Separated link</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="navbar navbar-inverse">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="javascript:void(0)">Brand</a>
-                </div>
-                <div class="navbar-collapse collapse navbar-inverse-collapse">
-                  <ul class="nav navbar-nav">
-                    <li class="active"><a href="javascript:void(0)">Active</a></li>
-                    <li><a href="javascript:void(0)">Link</a></li>
-                    <li class="dropdown">
-                      <a  href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0)">Action</a></li>
-                        <li><a href="javascript:void(0)">Another action</a></li>
-                        <li><a href="javascript:void(0)">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Dropdown header</li>
-                        <li><a href="javascript:void(0)">Separated link</a></li>
-                        <li><a href="javascript:void(0)">One more separated link</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <form class="navbar-form navbar-left">
-                    <input type="text" class="form-control col-lg-8" placeholder="Search">
-                  </form>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="javascript:void(0)">Link</a></li>
-                    <li class="dropdown">
-                      <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0)">Action</a></li>
-                        <li><a href="javascript:void(0)">Another action</a></li>
-                        <li><a href="javascript:void(0)">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="javascript:void(0)">Separated link</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="navbar navbar-material-light-blue-300">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-material-light-blue-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="javascript:void(0)">Brand</a>
-                </div>
-                <div class="navbar-collapse collapse navbar-material-light-blue-collapse">
-                  <ul class="nav navbar-nav">
-                    <li class="active"><a href="javascript:void(0)">Active</a></li>
-                    <li><a href="javascript:void(0)">Link</a></li>
-                    <li class="dropdown">
-                      <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0)">Action</a></li>
-                        <li><a href="javascript:void(0)">Another action</a></li>
-                        <li><a href="javascript:void(0)">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Dropdown header</li>
-                        <li><a href="javascript:void(0)">Separated link</a></li>
-                        <li><a href="javascript:void(0)">One more separated link</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <form class="navbar-form navbar-left">
-                    <input type="text" class="form-control col-lg-8" placeholder="Search">
-                  </form>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="javascript:void(0)">Link</a></li>
-                    <li class="dropdown">
-                      <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0)">Action</a></li>
-                        <li><a href="javascript:void(0)">Another action</a></li>
-                        <li><a href="javascript:void(0)">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="javascript:void(0)">Separated link</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-            </div>
-
-
-
-
-
-
-
-
-
-
-            <div class="well page" id="progress-bar">
-              <h1 class="header">Progress Bar</h1>
-              <h2>Basic</h2>
-              <div class="progress">
-                <div class="progress-bar" style="width: 60%;"></div>
-              </div>
-
-              <h2>Contextual alternatives</h2>
-              <div class="progress">
-                <div class="progress-bar progress-bar-info" style="width: 20%"></div>
-              </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" style="width: 40%"></div>
-              </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-warning" style="width: 60%"></div>
-              </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-danger" style="width: 80%"></div>
-              </div>
-
-              <h2>Striped</h2>
-              <div class="progress progress-striped">
-                <div class="progress-bar progress-bar-info" style="width: 20%"></div>
-              </div>
-              <div class="progress progress-striped">
-                <div class="progress-bar progress-bar-success" style="width: 40%"></div>
-              </div>
-              <div class="progress progress-striped">
-                <div class="progress-bar progress-bar-warning" style="width: 60%"></div>
-              </div>
-              <div class="progress progress-striped">
-                <div class="progress-bar progress-bar-danger" style="width: 80%"></div>
-              </div>
-
-              <h2>Animated</h2>
-              <div class="progress progress-striped active">
-                <div class="progress-bar" style="width: 45%"></div>
-              </div>
-
-              <h2>Stacked</h2>
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" style="width: 35%"></div>
-                <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
-                <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
-              </div>
-
-              <style>
-                #progress-bar h2 {
-                  font-size: 18.7199993133545px;
-                  font-weight: bold;
-                  margin-bottom: 30px;
-                }
-              </style>
-
-            </div>
-
-
-
-
-
-
-
-
-            <div class="well page" id="slider">
-              <h1 class="header">Slider</h1>
-              <div class="sample1">
-                <h2>Music, video, games &amp; other media</h2>
-                <div class="slider shor slider-material-orange"></div>
-
-                <h2>Notifications</h2>
-                <div class="slider shor slider-material-orange"></div>
-
-                <h2>Alarms</h2>
-                <div class="slider shor slider-material-orange"></div>
-              </div>
-
-              <div class="sample2">
-                <div class="slider svert"></div>
-                <div class="slider svert"></div>
-                <div class="slider svert"></div>
-              </div>
-
-              <p>Sliders are powered by <a href="http://refreshless.com/nouislider/" target="_blank">noUiSlider</a></p>
-
-              <style>
-                #slider .sample1, #slider .sample2 {
-                  padding: 20px 0;
-                  background-color: #f0f0f0;
-                  margin-bottom: 20px;
-                }
-                #slider .sample2 {
-                  height: 150px;
-                }
-                #slider .sample2 .slider {
-                  margin: 0 40px;
-                }
-                #slider h2 {
-                  padding: 14px;
-                  margin: 0;
-                  font-size: 16px;
-                  font-weight: 400;
-                }
-                #slider .slider {
-                  margin: 15px;
-                }
-              </style>
-
-            </div>
-            <div class="well page" id="material-colors">
-              <h1 class="header">Material Color Samples</h1>
-              <p>This is the list of all the supported color variations. Each color can be applied to every element that supports variations.
-              </p>
-              <pre><code>.btn-material-{{color}}
-              .navbar-material-{{color}}
-              .well-material-{{color}}
-              etc...</code></pre>
-              <div class="sampleOthers">
-                <button class="btn btn-black btn-lg">Black</button>
-                <button class="btn btn-white btn-lg">White</button>
-              </div>
-              <div class="sampleRed">
-                <h2><button class="btn btn-material-red btn-lg">Red</button></h2>
-                <button class="btn btn-material-red-50">050</button>
-                <button class="btn btn-material-red-100">100</button>
-                <button class="btn btn-material-red-200">200</button>
-                <button class="btn btn-material-red-300">300</button>
-                <button class="btn btn-material-red-400">400</button>
-                <button class="btn btn-material-red-500">500</button>
-                <button class="btn btn-material-red-600">600</button>
-                <button class="btn btn-material-red-700">700</button>
-                <button class="btn btn-material-red-800">800</button>
-                <button class="btn btn-material-red-900">900</button><br>
-                <button class="btn btn-material-red-A100">A100</button>
-                <button class="btn btn-material-red-A200">A200</button>
-                <button class="btn btn-material-red-A400">A400</button>
-                <button class="btn btn-material-red-A700">A700</button>
-              </div>
-              <div class="samplePink">
-                <h2><button class="btn btn-material-pink btn-lg">Pink</button></h2>
-                <button class="btn btn-material-pink-50">050</button>
-                <button class="btn btn-material-pink-100">100</button>
-                <button class="btn btn-material-pink-200">200</button>
-                <button class="btn btn-material-pink-300">300</button>
-                <button class="btn btn-material-pink-400">400</button>
-                <button class="btn btn-material-pink-500">500</button>
-                <button class="btn btn-material-pink-600">600</button>
-                <button class="btn btn-material-pink-700">700</button>
-                <button class="btn btn-material-pink-800">800</button>
-                <button class="btn btn-material-pink-900">900</button><br>
-                <button class="btn btn-material-pink-A100">A100</button>
-                <button class="btn btn-material-pink-A200">A200</button>
-                <button class="btn btn-material-pink-A400">A400</button>
-                <button class="btn btn-material-pink-A700">A700</button>
-              </div>
-              <div class="samplePurple">
-                <h2><button class="btn btn-material-purple btn-lg">Purple</button></h2>
-                <button class="btn btn-material-purple-50">050</button>
-                <button class="btn btn-material-purple-100">100</button>
-                <button class="btn btn-material-purple-200">200</button>
-                <button class="btn btn-material-purple-300">300</button>
-                <button class="btn btn-material-purple-400">400</button>
-                <button class="btn btn-material-purple-500">500</button>
-                <button class="btn btn-material-purple-600">600</button>
-                <button class="btn btn-material-purple-700">700</button>
-                <button class="btn btn-material-purple-800">800</button>
-                <button class="btn btn-material-purple-900">900</button><br>
-                <button class="btn btn-material-purple-A100">A100</button>
-                <button class="btn btn-material-purple-A200">A200</button>
-                <button class="btn btn-material-purple-A400">A400</button>
-                <button class="btn btn-material-purple-A700">A700</button>
-              </div>
-              <div class="sampleDeepPurple">
-                <h2><button class="btn btn-material-deep-purple btn-lg">Deep Purple</button></h2>
-                <button class="btn btn-material-deep-purple-50">050</button>
-                <button class="btn btn-material-deep-purple-100">100</button>
-                <button class="btn btn-material-deep-purple-200">200</button>
-                <button class="btn btn-material-deep-purple-300">300</button>
-                <button class="btn btn-material-deep-purple-400">400</button>
-                <button class="btn btn-material-deep-purple-500">500</button>
-                <button class="btn btn-material-deep-purple-600">600</button>
-                <button class="btn btn-material-deep-purple-700">700</button>
-                <button class="btn btn-material-deep-purple-800">800</button>
-                <button class="btn btn-material-deep-purple-900">900</button><br>
-                <button class="btn btn-material-deep-purple-A100">A100</button>
-                <button class="btn btn-material-deep-purple-A200">A200</button>
-                <button class="btn btn-material-deep-purple-A400">A400</button>
-                <button class="btn btn-material-deep-purple-A700">A700</button>
-              </div>
-              <div class="sampleIndigo">
-                <h2><button class="btn btn-material-indigo btn-lg">Indigo</button></h2>
-                <button class="btn btn-material-indigo-50">050</button>
-                <button class="btn btn-material-indigo-100">100</button>
-                <button class="btn btn-material-indigo-200">200</button>
-                <button class="btn btn-material-indigo-300">300</button>
-                <button class="btn btn-material-indigo-400">400</button>
-                <button class="btn btn-material-indigo-500">500</button>
-                <button class="btn btn-material-indigo-600">600</button>
-                <button class="btn btn-material-indigo-700">700</button>
-                <button class="btn btn-material-indigo-800">800</button>
-                <button class="btn btn-material-indigo-900">900</button><br>
-                <button class="btn btn-material-indigo-A100">A100</button>
-                <button class="btn btn-material-indigo-A200">A200</button>
-                <button class="btn btn-material-indigo-A400">A400</button>
-                <button class="btn btn-material-indigo-A700">A700</button>
-              </div>
-              <div class="sampleBlue">
-                <h2><button class="btn btn-material-blue btn-lg">Blue</button></h2>
-                <button class="btn btn-material-blue-50">050</button>
-                <button class="btn btn-material-blue-100">100</button>
-                <button class="btn btn-material-blue-200">200</button>
-                <button class="btn btn-material-blue-300">300</button>
-                <button class="btn btn-material-blue-400">400</button>
-                <button class="btn btn-material-blue-500">500</button>
-                <button class="btn btn-material-blue-600">600</button>
-                <button class="btn btn-material-blue-700">700</button>
-                <button class="btn btn-material-blue-800">800</button>
-                <button class="btn btn-material-blue-900">900</button><br>
-                <button class="btn btn-material-blue-A100">A100</button>
-                <button class="btn btn-material-blue-A200">A200</button>
-                <button class="btn btn-material-blue-A400">A400</button>
-                <button class="btn btn-material-blue-A700">A700</button>
-              </div>
-              <div class="sampleLightBlue">
-                <h2><button class="btn btn-material-light-blue btn-lg">Light Blue</button></h2>
-                <button class="btn btn-material-light-blue-50">050</button>
-                <button class="btn btn-material-light-blue-100">100</button>
-                <button class="btn btn-material-light-blue-200">200</button>
-                <button class="btn btn-material-light-blue-300">300</button>
-                <button class="btn btn-material-light-blue-400">400</button>
-                <button class="btn btn-material-light-blue-500">500</button>
-                <button class="btn btn-material-light-blue-600">600</button>
-                <button class="btn btn-material-light-blue-700">700</button>
-                <button class="btn btn-material-light-blue-800">800</button>
-                <button class="btn btn-material-light-blue-900">900</button><br>
-                <button class="btn btn-material-light-blue-A100">A100</button>
-                <button class="btn btn-material-light-blue-A200">A200</button>
-                <button class="btn btn-material-light-blue-A400">A400</button>
-                <button class="btn btn-material-light-blue-A700">A700</button>
-              </div>
-              <div class="sampleCyan">
-                <h2><button class="btn btn-material-cyan btn-lg">Cyan</button></h2>
-                <button class="btn btn-material-cyan-50">050</button>
-                <button class="btn btn-material-cyan-100">100</button>
-                <button class="btn btn-material-cyan-200">200</button>
-                <button class="btn btn-material-cyan-300">300</button>
-                <button class="btn btn-material-cyan-400">400</button>
-                <button class="btn btn-material-cyan-500">500</button>
-                <button class="btn btn-material-cyan-600">600</button>
-                <button class="btn btn-material-cyan-700">700</button>
-                <button class="btn btn-material-cyan-800">800</button>
-                <button class="btn btn-material-cyan-900">900</button><br>
-                <button class="btn btn-material-cyan-A100">A100</button>
-                <button class="btn btn-material-cyan-A200">A200</button>
-                <button class="btn btn-material-cyan-A400">A400</button>
-                <button class="btn btn-material-cyan-A700">A700</button>
-              </div>
-              <div class="sampleTeal">
-                <h2><button class="btn btn-material-teal btn-lg">Teal</button></h2>
-                <button class="btn btn-material-teal-50">050</button>
-                <button class="btn btn-material-teal-100">100</button>
-                <button class="btn btn-material-teal-200">200</button>
-                <button class="btn btn-material-teal-300">300</button>
-                <button class="btn btn-material-teal-400">400</button>
-                <button class="btn btn-material-teal-500">500</button>
-                <button class="btn btn-material-teal-600">600</button>
-                <button class="btn btn-material-teal-700">700</button>
-                <button class="btn btn-material-teal-800">800</button>
-                <button class="btn btn-material-teal-900">900</button><br>
-                <button class="btn btn-material-teal-A100">A100</button>
-                <button class="btn btn-material-teal-A200">A200</button>
-                <button class="btn btn-material-teal-A400">A400</button>
-                <button class="btn btn-material-teal-A700">A700</button>
-              </div>
-              <div class="sampleGreen">
-                <h2><button class="btn btn-material-green btn-lg">Green</button></h2>
-                <button class="btn btn-material-green-50">050</button>
-                <button class="btn btn-material-green-100">100</button>
-                <button class="btn btn-material-green-200">200</button>
-                <button class="btn btn-material-green-300">300</button>
-                <button class="btn btn-material-green-400">400</button>
-                <button class="btn btn-material-green-500">500</button>
-                <button class="btn btn-material-green-600">600</button>
-                <button class="btn btn-material-green-700">700</button>
-                <button class="btn btn-material-green-800">800</button>
-                <button class="btn btn-material-green-900">900</button><br>
-                <button class="btn btn-material-green-A100">A100</button>
-                <button class="btn btn-material-green-A200">A200</button>
-                <button class="btn btn-material-green-A400">A400</button>
-                <button class="btn btn-material-green-A700">A700</button>
-              </div>
-              <div class="sampleLightGreen">
-                <h2><button class="btn btn-material-light-green btn-lg">LightGreen</button></h2>
-                <button class="btn btn-material-light-green-50">050</button>
-                <button class="btn btn-material-light-green-100">100</button>
-                <button class="btn btn-material-light-green-200">200</button>
-                <button class="btn btn-material-light-green-300">300</button>
-                <button class="btn btn-material-light-green-400">400</button>
-                <button class="btn btn-material-light-green-500">500</button>
-                <button class="btn btn-material-light-green-600">600</button>
-                <button class="btn btn-material-light-green-700">700</button>
-                <button class="btn btn-material-light-green-800">800</button>
-                <button class="btn btn-material-light-green-900">900</button><br>
-                <button class="btn btn-material-light-green-A100">A100</button>
-                <button class="btn btn-material-light-green-A200">A200</button>
-                <button class="btn btn-material-light-green-A400">A400</button>
-                <button class="btn btn-material-light-green-A700">A700</button>
-              </div>
-              <div class="sampleLime">
-                <h2><button class="btn btn-material-lime btn-lg">Lime</button></h2>
-                <button class="btn btn-material-lime-50">050</button>
-                <button class="btn btn-material-lime-100">100</button>
-                <button class="btn btn-material-lime-200">200</button>
-                <button class="btn btn-material-lime-300">300</button>
-                <button class="btn btn-material-lime-400">400</button>
-                <button class="btn btn-material-lime-500">500</button>
-                <button class="btn btn-material-lime-600">600</button>
-                <button class="btn btn-material-lime-700">700</button>
-                <button class="btn btn-material-lime-800">800</button>
-                <button class="btn btn-material-lime-900">900</button><br>
-                <button class="btn btn-material-lime-A100">A100</button>
-                <button class="btn btn-material-lime-A200">A200</button>
-                <button class="btn btn-material-lime-A400">A400</button>
-                <button class="btn btn-material-lime-A700">A700</button>
-              </div>
-              <div class="sampleYellow">
-                <h2><button class="btn btn-material-yellow btn-lg">Yellow</button></h2>
-                <button class="btn btn-material-yellow-50">050</button>
-                <button class="btn btn-material-yellow-100">100</button>
-                <button class="btn btn-material-yellow-200">200</button>
-                <button class="btn btn-material-yellow-300">300</button>
-                <button class="btn btn-material-yellow-400">400</button>
-                <button class="btn btn-material-yellow-500">500</button>
-                <button class="btn btn-material-yellow-600">600</button>
-                <button class="btn btn-material-yellow-700">700</button>
-                <button class="btn btn-material-yellow-800">800</button>
-                <button class="btn btn-material-yellow-900">900</button><br>
-                <button class="btn btn-material-yellow-A100">A100</button>
-                <button class="btn btn-material-yellow-A200">A200</button>
-                <button class="btn btn-material-yellow-A400">A400</button>
-                <button class="btn btn-material-yellow-A700">A700</button>
-              </div>
-              <div class="sampleAmber">
-                <h2><button class="btn btn-material-amber btn-lg">Amber</button></h2>
-                <button class="btn btn-material-amber-50">050</button>
-                <button class="btn btn-material-amber-100">100</button>
-                <button class="btn btn-material-amber-200">200</button>
-                <button class="btn btn-material-amber-300">300</button>
-                <button class="btn btn-material-amber-400">400</button>
-                <button class="btn btn-material-amber-500">500</button>
-                <button class="btn btn-material-amber-600">600</button>
-                <button class="btn btn-material-amber-700">700</button>
-                <button class="btn btn-material-amber-800">800</button>
-                <button class="btn btn-material-amber-900">900</button><br>
-                <button class="btn btn-material-amber-A100">A100</button>
-                <button class="btn btn-material-amber-A200">A200</button>
-                <button class="btn btn-material-amber-A400">A400</button>
-                <button class="btn btn-material-amber-A700">A700</button>
-              </div>
-              <div class="sampleOrange">
-                <h2><button class="btn btn-material-orange btn-lg">Orange</button></h2>
-                <button class="btn btn-material-orange-50">050</button>
-                <button class="btn btn-material-orange-100">100</button>
-                <button class="btn btn-material-orange-200">200</button>
-                <button class="btn btn-material-orange-300">300</button>
-                <button class="btn btn-material-orange-400">400</button>
-                <button class="btn btn-material-orange-500">500</button>
-                <button class="btn btn-material-orange-600">600</button>
-                <button class="btn btn-material-orange-700">700</button>
-                <button class="btn btn-material-orange-800">800</button>
-                <button class="btn btn-material-orange-900">900</button><br>
-                <button class="btn btn-material-orange-A100">A100</button>
-                <button class="btn btn-material-orange-A200">A200</button>
-                <button class="btn btn-material-orange-A400">A400</button>
-                <button class="btn btn-material-orange-A700">A700</button>
-              </div>
-              <div class="sampleDeepOrange">
-                <h2><button class="btn btn-material-deep-orange btn-lg">Deep Orange</button></h2>
-                <button class="btn btn-material-deep-orange-50">050</button>
-                <button class="btn btn-material-deep-orange-100">100</button>
-                <button class="btn btn-material-deep-orange-200">200</button>
-                <button class="btn btn-material-deep-orange-300">300</button>
-                <button class="btn btn-material-deep-orange-400">400</button>
-                <button class="btn btn-material-deep-orange-500">500</button>
-                <button class="btn btn-material-deep-orange-600">600</button>
-                <button class="btn btn-material-deep-orange-700">700</button>
-                <button class="btn btn-material-deep-orange-800">800</button>
-                <button class="btn btn-material-deep-orange-900">900</button><br>
-                <button class="btn btn-material-deep-orange-A100">A100</button>
-                <button class="btn btn-material-deep-orange-A200">A200</button>
-                <button class="btn btn-material-deep-orange-A400">A400</button>
-                <button class="btn btn-material-deep-orange-A700">A700</button><br><br>
-              </div>
-              <div class="sampleBrown">
-                <h2><button class="btn btn-material-brown btn-lg">Brown</button></h2>
-                <button class="btn btn-material-brown-50">050</button>
-                <button class="btn btn-material-brown-100">100</button>
-                <button class="btn btn-material-brown-200">200</button>
-                <button class="btn btn-material-brown-300">300</button>
-                <button class="btn btn-material-brown-400">400</button>
-                <button class="btn btn-material-brown-500">500</button>
-                <button class="btn btn-material-brown-600">600</button>
-                <button class="btn btn-material-brown-700">700</button>
-                <button class="btn btn-material-brown-800">800</button>
-                <button class="btn btn-material-brown-900">900</button>
-              </div>
-              <div class="sampleGrey">
-                <h2><button class="btn btn-material-grey btn-lg">Grey</button></h2>
-                <button class="btn btn-material-grey-50">050</button>
-                <button class="btn btn-material-grey-100">100</button>
-                <button class="btn btn-material-grey-200">200</button>
-                <button class="btn btn-material-grey-300">300</button>
-                <button class="btn btn-material-grey-400">400</button>
-                <button class="btn btn-material-grey-500">500</button>
-                <button class="btn btn-material-grey-600">600</button>
-                <button class="btn btn-material-grey-700">700</button>
-                <button class="btn btn-material-grey-800">800</button>
-                <button class="btn btn-material-grey-900">900</button>
-              </div>
-              <div class="sampleBlueGrey">
-                <h2><button class="btn btn-material-blue-grey btn-lg">Blue Grey</button></h2>
-                <button class="btn btn-material-blue-grey-50">050</button>
-                <button class="btn btn-material-blue-grey-100">100</button>
-                <button class="btn btn-material-blue-grey-200">200</button>
-                <button class="btn btn-material-blue-grey-300">300</button>
-                <button class="btn btn-material-blue-grey-400">400</button>
-                <button class="btn btn-material-blue-grey-500">500</button>
-                <button class="btn btn-material-blue-grey-600">600</button>
-                <button class="btn btn-material-blue-grey-700">700</button>
-                <button class="btn btn-material-blue-grey-800">800</button>
-                <button class="btn btn-material-blue-grey-900">900</button>
-              </div>
-            </div>
-            <div class="well page" id="button">
-              <h1 class="header">Button</h1>
-              <div class="sample1">
-                <h2>Normal buttons</h2>
-                <button class="btn btn-default">Button</button>
-                <button class="btn btn-primary">Colored</button>
-                <button class="btn btn-default" disabled>Disabled</button>
-                <button class="btn btn-default btn-link">Noink</button>
-              </div>
-              <div class="sample1">
-                <h2>Flat buttons</h2>
-                <button class="btn btn-default btn-flat">Button</button>
-                <button class="btn btn-primary btn-flat">Colored</button>
-                <button class="btn btn-default btn-flat" disabled>Disabled</button>
-                <button class="btn btn-default btn-flat btn-link">Noink</button>
-              </div>
-              <div class="sample2">
-                <h2>Raised buttons</h2>
-                <button class="btn btn-default btn-raised">Button</button>
-                <button class="btn btn-primary btn-raised">Colored</button>
-                <button class="btn btn-default btn-raised" disabled>Disabled</button>
-                <button class="btn btn-default btn-raised btn-link">Noink</button>
-              </div>
-              <div class="sample3">
-                <h2>Custom button content</h2>
-                <button class="btn btn-primary btn-flat"><i class="mdi-navigation-check"></i> Ok</button>
-                <button class="btn btn-default btn-flat"><i class="mdi-navigation-close"></i> Cancel</button>
-              </div>
-
-
-              <style>
-                #button h2 {
-                  padding: 14px;
-                  margin: 0;
-                  font-size: 16px;
-                  font-weight: 400;
-                }
-              </style>
-            </div>
-            <div class="well page" id="floating-action-button">
-              <h1 class="header">Floating Action Button</h1>
-
-              <h2>Regular</h2>
-              <button class="btn btn-fab btn-raised btn-material-red"><i class="mdi-navigation-arrow-forward"></i></button>
-              <button class="btn btn-fab btn-raised btn-primary"><i class="mdi-image-edit"></i></button>
-
-              <h2>Mini</h2>
-              <button class="btn btn-fab btn-fab-mini btn-raised btn-sm btn-success"><i class="mdi-navigation-check"></i></button>
-              <button class="btn btn-fab btn-fab-mini btn-raised btn-material-lightyellow"><i class="mdi-content-reply"></i></button>
-
-              <style>
-                #floating-action-button .btn {
-                  margin: 20px;
-                }
-                #floating-action-button h2 {
-                  padding: 14px;
-                  margin: 0;
-                  font-size: 16px;
-                  font-weight: 400;
-                }
-              </style>
-            </div>
-            <div class="well page" id="dropdown">
-              <style>
-                #dropdown h2 {
-                  padding: 14px;
-                  margin: 0;
-                  font-size: 16px;
-                  font-weight: 400;
-                }
-                #dropdown .dropdown {
-                  font-size: 30px;
-                  padding: 20px;
-                }
-              </style>
-              <h1 class="header">Dropdown</h1>
-              <h2>Simple dropdown</h2>
-              <span class="dropdown"><i class="mdi-navigation-menu"></i></span>
-            </div>
-            <div class="well page" id="dropdown-menu">
-              <style>
-                #dropdown-menu h2 {
-                  padding: 14px;
-                  margin: 0;
-                  font-size: 16px;
-                  font-weight: 400;
-                }
-                #dropdown-menu .sample {
-                  width: 200px;
-                }
-                #dropdown-menu .form-group {
-                  margin: 30px 0;
-                }
-              </style>
-              <h1 class="header">Dropdown</h1>
-
-              <div class="sample">
-                <select class="form-control" placeholder="Your favorite pastry">
-                  <option value="Apple fritter">Apple fritter</option>
-                  <option value="Croissant">Croissant</option>
-                  <option value="Donut">Donut</option>
-                  <option value="Financier">Financier</option>
-                  <option value="Jello">Jello</option>
-                  <option value="Madeleine">Madeleine</option>
-                  <option value="Pound cake">Pound cake</option>
-                  <option value="Pretzel">Pretzel</option>
-                  <option value="Sfogliatelle">Sfogliatelle</option>
-                </select>
-
-
-                <select class="form-control" disabled placeholder="Your favorite pastry">
-                  <option value="disabled">Disabled</option>
-                </select>
-              </div>
-
-            </div>
-            <div class="well page" id="dialog">
-              <h1 class="header">Dialog</h1>
-
-              <h2>Simple Dialog</h2>
-              <button class="btn btn-primary" data-toggle="modal" data-target="#simple-dialog">Open dialog</button>
-
-              <h2>Dialog with header and footer</h2>
-              <button class="btn btn-primary" data-toggle="modal" data-target="#complete-dialog">Open dialog</button>
-
-              <div id="simple-dialog" class="modal fade" tabindex="-1">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <p>E dolore commodo, id anim aute sint cupidatat eu est anim tamen ad possumus,
-                        legam officia firmissimum. Eram deserunt domesticarum, iis ita praetermissum,
-                        nam aliquip quo probant, incididunt et occaecat an nam enim exquisitaque a
-                        nescius velit admodum, non ad cohaerescant, probant o nulla tempor. Aute aut te
-                        quis arbitror ubi ne aliqua consequat aliquip. Ad sunt laborum senserit, de do
-                        quem possumus. Sint tractavissent cupidatat aute possumus ita elit ad cupidatat.
-                        Arbitror ab fabulas o eu e veniam pariatur. Non voluptate comprehenderit ad nisi
-                        id voluptate. Quis distinguantur quibusdam quae mentitum o si minim illum nisi
-                        mandaremus.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div id="complete-dialog" class="modal fade" tabindex="-1">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title">Dialog</h4>
-                    </div>
-                    <div class="modal-body">
-                      <p>Fore aut non quem incididunt, varias reprehenderit deserunt quem offendit,
-                        cillum proident ne reprehenderit, quem ad laborum, quo possumus praetermissum,
-                        si ne illustriora, hic appellat coniunctione, do labore aliqua quo probant. In
-                        probant voluptatibus quo mentitum est laboris. Quorum mandaremus graviterque.
-                        Mentitum id velit, dolor aut litteris, ea varias illustriora, ita commodo ita
-                        ingeniis, iis nulla appellat incurreret, aut irure amet summis pariatur ita ubi
-                        quis dolore veniam proident, consequat sed ingeniis.</p>
-                    </div>
-                    <div class="modal-footer">
-                      <button class="btn btn-primary" data-dismiss="modal">Dismiss</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <style>
-                #dialog h2 {
-                  padding: 14px;
-                  margin: 0;
-                  font-size: 16px;
-                  font-weight: 400;
-                }
-              </style>
-            </div>
-            <div class="well page" id="shadow">
-              <h1 class="header">Shadow</h1>
-
-              <h2>Shadows</h2>
-              <div class="sample">z = 0</div>
-              <div class="sample shadow-z-1">z = 1</div>
-              <div class="sample shadow-z-2">z = 2</div>
-              <div class="sample shadow-z-3">z = 3</div>
-              <div class="sample shadow-z-4">z = 4</div>
-              <div class="sample shadow-z-5">z = 5</div>
-
-              <h2>Animated</h2>
-              <div id="shadow-sample2" data-tap="0">tap</div>
-              <div id="shadow-sample3" data-tap="0">tap</div>
-
-              <script>
-                $(document).on("click", "#shadow-sample2, #shadow-sample3", function() {
-                  var tap = ($(this).data("tap") * 1) + 1;
-                  if (tap === 6) {
-                    tap = 0;
-                  }
-                  $(this).data("tap", tap);
-                  var shadow = "shadow-z-" + tap;
-                  $(this).attr("class", shadow);
-                });
-              </script>
-
-              <style>
-                #shadow h2 {
-                  padding: 14px;
-                  margin: 0;
-                  font-size: 16px;
-                  font-weight: 400;
-                }
-                #shadow .sample {
-                  width:  100px;
-                  height: 100px;
-                  margin: 16px;
-                  padding: 16px;
-                  display: inline-block;
-                }
-                #shadow-sample2 {
-                  display: inline-block;
-                  width:  100px;
-                  height: 100px;
-                  margin: 16px;
-                  padding: 16px;
-                  cursor: pointer;
-                  -webkit-user-select: none;
-                  -moz-user-select: none;
-                  user-select: none;
-
-                }
-                #shadow-sample3 {
-                  display: inline-block;
-                  width:  100px;
-                  height: 100px;
-                  margin: 16px;
-                  padding: 16px;
-                  border-radius: 100px;
-                  cursor: pointer;
-                  -webkit-user-select: none;
-                  -moz-user-select: none;
-                  user-select: none;
-                }
-              </style>
-            </div>
+    <main>
+      <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+          <h1 class="header center-on-small-only">Material Design</h1>
+          <div class='row center'>
+            <h4 class ="header col s12 light center">Aesthetically intuitive design concept by Google. </h4>
           </div>
-          <div class="col-xs-2">
-            <button class="btn btn-fab btn-material-grey-200" id="opensource"><i class="mdi-action-open-in-new"></i></button></div>
+          <div class="row center">
+            <a href="http://edwardzhu.me/google-material-design" id="download-button" class="btn-large waves-effect waves-light">About Material</a>
+          </div>
+
+          <br>
+          <br>
+          <br>
+
         </div>
-      </div>
-    </div>
-
-    <div id="source-modal" class="modal fade" tabindex="-1">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Source Code</h4>
-          </div>
-          <div class="modal-body">
-            <pre></pre>
+        <div class="github-commit">
+          <div class="container">
+            <div class="commit">
+              Latest Commit on Github:
+              &nbsp;&nbsp;
+              <a href="" class="sha"></a>
+              &nbsp;&nbsp;
+              <span class="date"></span>
+              <a id="github-button" href="https://github.com/zhued/google-material-design" class="btn-flat right grey-text text-lighten-5 waves-effect waves-light hide-on-small-only">Github</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <div class="container">
+        <div class="section">
+
+          <div class="row">
+            <div class="col s12 m8 offset-m2">
+              <br>
+              <img id="responsive-img" src="images/responsive.png">
+            </div>
+          </div>
+
+          <div class="row center">
+            <h3 class="col s12 light center header">Material design brings in a new perspective on the interaction between web/mobile applications and the user.</h3>
+
+            <p class="col s8 offset-s2 caption">Checkout examples of Material Design and see how it will change your outlook on design principles. Click below to go straight to examples, or navigate the side bar to the left for my specific analysis of Google's Material Design.</p>
+
+            <a href="http://materializecss.com/showcase.html" class="btn-large waves-effect waves-light">Experience Material</a>
+          </div>
 
 
-    <!-- Open source code -->
-    <script>
-      window.page = window.location.hash || "#about";
-
-      $(document).ready(function() {
-        if (window.page != "#about") {
-          $(".menu").find("li[data-target=" + window.page + "]").trigger("click");
-        }
-      });
-
-      $(window).on("resize", function() {
-        $("html, body").height($(window).height());
-        $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight());
-        $(".pages").height($(window).height());
-      }).trigger("resize");
-
-      $(".menu li").click(function() {
-        // Menu
-        if (!$(this).data("target")) return;
-        if ($(this).is(".active")) return;
-        $(".menu li").not($(this)).removeClass("active");
-        $(".page").not(page).removeClass("active").hide();
-        window.page = $(this).data("target");
-        var page = $(window.page);
-        window.location.hash = window.page;
-        $(this).addClass("active");
+        </div>
+      </div>
 
 
-        page.show();
+    </main>    
 
-        var totop = setInterval(function() {
-          $(".pages").animate({scrollTop:0}, 0);
-        }, 1);
 
-        setTimeout(function() {
-          page.addClass("active");
-          setTimeout(function() {
-            clearInterval(totop);
-          }, 1000);
-        }, 100);
-      });
 
-      function cleanSource(html) {
-        var lines = html.split(/\n/);
 
-        lines.shift();
-        lines.splice(-1, 1);
 
-        var indentSize = lines[0].length - lines[0].trim().length,
-            re = new RegExp(" {" + indentSize + "}");
 
-        lines = lines.map(function(line){
-          if (line.match(re)) {
-            line = line.substring(indentSize);
-          }
 
-          return line;
-        });
 
-        lines = lines.join("\n");
 
-        return lines;
-      }
 
-      $("#opensource").click(function() {
-        $.get(window.location.href, function(data){
-          var html = $(data).find(window.page).html();
-          html = cleanSource(html);
-          $("#source-modal pre").text(html);
-          $("#source-modal").modal();
-        });
-      });
+
+
+
+
+
+
+
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l4 s12">
+            <h5 class="white-text">About the Writer</h5>
+            <p class="grey-text text-lighten-4">My name is Edward Zhu, and I am currently a student at University of Colorado, Boulder. This is a writing project on analyzing "design" of something for WRTG 3035 Technical Communication and Design taught by Petger Schaberg during Spring 2015.</p>
+          </div>
+          <div class="col l4 s12">
+            <h5 class="white-text">How I Made this Site.</h5>
+            <p class="grey-text text-lighten-4">I am very thankful for an open source project create by a group of students that have compiled material design into css formatting so creating this site was a smooth and easy process Check out the GitHub Repo to the open sourced project below!</p>
+            <iframe src="http://ghbtns.com/github-btn.html?user=dogfalo&repo=materialize&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+          </div>
+          <div class="col l4 s12" style="overflow: hidden;">
+            <h5 class="white-text">Connect with Me</h5>
+            <a href="https://twitter.com/edwardisasian" class="twitter-follow-button" data-show-count="true" data-size="large" data-dnt="true">Follow @edwardisasian</a>
+            <br>
+            <a class="btn waves-effect waves-light red lighten-3" target="_blank" href="http://www.edwardzhu.me">My Personal Site</a>
+            <div class="g-follow" data-annotation="bubble" data-height="24" data-href="https://plus.google.com/108619793845925798422" data-rel="publisher"></div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="footer-copyright">
+        <div class="container">
+        © 2015 Edward Zhu, All rights reserved.
+        <a class="grey-text text-lighten-4 right" href="https://github.com/Dogfalo/materialize/blob/master/LICENSE">MIT License</a>
+        </div>
+      </div>
+    </footer>
+
+
+
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>if (!window.jQuery) { document.write('<script src="bin/jquery-2.1.1.min.js"><\/script>'); }
     </script>
+    <script src="js/jquery.timeago.min.js"></script>  
+    <script src="js/prism.js"></script>
+    <script src="bin/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <!-- Twitter Button -->
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-    <!-- Twitter Bootstrap -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <!-- Google Plus Button-->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-    <!-- Material Design for Bootstrap -->
-    <script src="dist/js/material.min.js"></script>
-    <script src="dist/js/ripples.min.js"></script>
+    <!--  Google Analytics  -->
     <script>
-      $.material.init();
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-56218128-1', 'auto');
+    ga('require', 'displayfeatures');
+    ga('send', 'pageview');
     </script>
-
-
-    <!-- Sliders -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
-    <script>
-      $(function() {
-        $.material.init();
-        $(".shor").noUiSlider({
-          start: 40,
-          connect: "lower",
-          range: {
-            min: 0,
-            max: 100
-          }
-        });
-
-        $(".svert").noUiSlider({
-          orientation: "vertical",
-          start: 40,
-          connect: "lower",
-          range: {
-            min: 0,
-            max: 100
-          }
-        });
-      });
-    </script>
-
-    <!-- Dropdown.js -->
-    <script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
-    <script>
-      $("#dropdown-menu select").dropdown();
-    </script>
-
   </body>
 </html>
