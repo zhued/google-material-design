@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="Materialize is a modern responsive CSS framework based on Material Design by Google. ">
+    <title>3D World</title>
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+    <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
+    <!--  Android 5 Chrome Color-->
+    <meta name="theme-color" content="#EE6E73">
+    <!-- CSS-->
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+    <script src="//cdn.transifex.com/live.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="top-nav">
+        <div class="container">
+          <div class="nav-wrapper"><a class="page-title">3D World</a></div>
+        </div>
+      </nav>
+      <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"><i class="mdi-navigation-menu"></i></a></div>
+      <ul id="nav-mobile" class="side-nav fixed">
+        <li class="logo"><a id="logo-container" href="http://materializecss.com/" class="brand-logo">
+            <object id="front-page-logo" type="image/svg+xml" data="res/materialize.svg">Your browser does not support SVG</object></a></li>
+        <li class="bold"><a href="about.html" class="waves-effect waves-teal">About</a></li>
+        <li class="bold"><a href="reason.html" class="waves-effect waves-teal">Why?</a></li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold"><a class="collapsible-header active waves-effect waves-teal">Environment</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li class="active"><a href="3dworld.html">3D World</a></li>
+                  <li><a href="properties.html">Properties</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Animations</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="interations.html">Interactions</a></li>
+                  <li><a href="transitions.html">Transitions</a></li>
+                  <li><a href="details.html">Details</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="bold"><a href="experience.html" class="waves-effect waves-teal">Experience</a></li>
+      </ul>
+    </header>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <main><div class="container">
+  <div class="row">
+
+    <div class="col s12 m9 l10">
+      <div id="zaxis" class="section scrollspy">
+        <p class="caption">
+        We live in a three dimensional world, where most solid objects are affixed and cannot pass through one another. Different arrangements of objects will allow our depth perceptions to identify distance and size. These attributes are second nature to us, has we see them every day, so Google applied them into material design.
+        </p>
+        <h2 class="header">Z Axis</h2>
+        <p class="caption">
+        Although a screen is only two dimensional and flat, the virtual z-axis is crucial to the user's visibility of familiarities between the physical world and the pixelated world.
+        </p>
+
+        <img width="100%" height="100%" src="//material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7UXpQYWltVjNPWXc/whatismaterial_environment_3d.png">
+
+        <!-- <video width="100%" height="100%" autoplay loop>
+                <source src="//material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0B0NGgBg38lWWSE9IaUpqYzlpSW8/whatismaterial-materialprop-physicalprop-020201_PaperShadow_Do_xhdpi_007.webm" type="video/webm">
+                <source src="//material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0B0NGgBg38lWWRWJfTERvdnM1bGc/whatismaterial-materialprop-physicalprop-020201_PaperShadow_Do_xhdpi_007.mp4" type="video/mp4">
+                Your browser does not support the video tag.. Or the video doesn't exists on the Google API anymore...
+              </video> -->
+
+
+
+      </div>
+      <div id="floating" class="section scrollspy">
+        <h2 class="header">Floating</h2>
+        <a class="btn-floating waves-effect waves-light btn-large red"><i class="mdi-content-add"></i></a><br><br>
+        <pre><code class="language-markup col s12">
+  &lt;a class="btn-floating btn-large waves-effect waves-light red">&lt;i class="mdi-content-add">&lt;/i>&lt;/a>
+        </code></pre>
+        <br>
+
+        <h4 class="light">Fixed Action Button</h4>
+        <p>If you want a fixed floating action button, you can add multiple actions that will appear on hover. Our demo is in the bottom righthand corner of the page.</p>
+        <pre><code class="language-markup col s12">
+  &lt;div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    &lt;a class="btn-floating btn-large red">
+      &lt;i class="large mdi-editor-mode-edit">&lt;/i>
+    &lt;/a>
+    &lt;ul>
+      &lt;li>&lt;a class="btn-floating red">&lt;i class="large mdi-editor-insert-chart">&lt;/i>&lt;/a>&lt;/li>
+      &lt;li>&lt;a class="btn-floating yellow darken-1">&lt;i class="large mdi-editor-format-quote">&lt;/i>&lt;/a>&lt;/li>
+      &lt;li>&lt;a class="btn-floating green">&lt;i class="large mdi-editor-publish">&lt;/i>&lt;/a>&lt;/li>
+      &lt;li>&lt;a class="btn-floating blue">&lt;i class="large mdi-editor-attach-file">&lt;/i>&lt;/a>&lt;/li>
+    &lt;/ul>
+  &lt;/div>
+        </code></pre>
+        <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+          <a class="btn-floating btn-large red">
+            <i class="large mdi-editor-mode-edit"></i>
+          </a>
+          <ul>
+            <li><a class="btn-floating red"><i class="large mdi-editor-insert-chart"></i></a></li>
+            <li><a class="btn-floating yellow darken-1"><i class="large mdi-editor-format-quote"></i></a></li>
+            <li><a class="btn-floating green"><i class="large mdi-editor-publish"></i></a></li>
+            <li><a class="btn-floating blue"><i class="large mdi-editor-attach-file"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="flat" class="section scrollspy">
+        <h2 class="header">Flat</h2>
+        <a class="waves-effect waves-teal btn-flat">Button</a>
+        <pre><code class="language-markup col s12">
+  &lt;a class="waves-effect waves-teal btn-flat">Button&lt;/a>
+        </code></pre>
+      </div>
+      <div id="submit" class="section scrollspy">
+        <h2 class="header">Submit Button</h2>
+        <p>When you use a button to submit a form, instead of using a input tag, use a button tag with a type submit</p>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit<i class="mdi-content-send right"></i></button>
+        <pre><code class="language-markup">
+  &lt;button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    &lt;i class="mdi-content-send right">&lt;/i>
+  &lt;/button>
+        </code></pre>
+      </div>
+      <div id="large" class="section scrollspy">
+        <h2 class="header">Large</h2>
+        <p>This button has a larger height for buttons that need more attention.</p>
+        <a class="waves-effect waves-light btn-large">Button</a>
+        <a class="waves-effect waves-light btn-large"><i class="mdi-file-cloud left"></i>button</a>
+        <a class="waves-effect waves-light btn-large"><i class="mdi-file-cloud right"></i>button</a>
+        <pre><code class="language-markup col s12">
+&lt;a class="waves-effect waves-light btn-large">Button&lt;/a>
+&lt;a class="waves-effect waves-light btn-large">&lt;i class="mdi-file-cloud left">&lt;/i>button&lt;/a>
+&lt;a class="waves-effect waves-light btn-large">&lt;i class="mdi-file-cloud right">&lt;/i>button&lt;/a>
+        </code></pre>
+      </div>
+      <div id="disabled" class="section scrollspy">
+        <h2 class="header">Disabled</h2>
+        <p>This style can be applied to all button types</p>
+        <a class="btn-large disabled">Button</a>
+        <a class="btn disabled">Button</a>
+        <a class="btn-flat disabled">Button</a>
+        <a class="btn-floating disabled"><i class="mdi-content-add"></i></a>
+        <pre><code class="language-markup col s12">
+&lt;a class="btn-large disabled">Button&lt;/a>
+&lt;a class="btn disabled">Button&lt;/a>
+&lt;a class="btn-flat disabled">Button&lt;/a>
+&lt;a class="btn-floating disabled">&lt;i class="mdi-content-add">&lt;/i>&lt;/a>
+        </code></pre>
+      </div>
+
+    </div>
+
+    <div class="col hide-on-small-only m3 l2">
+      <div class="toc-wrapper">
+        <div style="height: 1px;">
+          <ul class="section table-of-contents">
+            <li><a href="#zaxis">Z Axis</a></li>
+          <li><a href="#elevation">Elevation</a></li>
+          <li><a href="#shadows">Shadows</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+    </main>    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l4 s12">
+            <h5 class="white-text">About the Writer</h5>
+            <p class="grey-text text-lighten-4">My name is Edward Zhu, and I am currently a student at University of Colorado, Boulder. This is a writing project on analyzing the "design" of something for WRTG 3035 Technical Communication and Design taught by Petger Schaberg during Spring 2015.</p>
+          </div>
+          <div class="col l4 s12">
+            <h5 class="white-text">How I Made this Site.</h5>
+            <p class="grey-text text-lighten-4">I am very thankful for an open source project created by a group of students that have compiled material design into css formatting so creating this site was a smooth and easy process Check out the GitHub Repo to the open sourced project below!</p>
+            <iframe src="http://ghbtns.com/github-btn.html?user=dogfalo&repo=materialize&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+          </div>
+          <div class="col l4 s12" style="overflow: hidden;">
+            <h5 class="white-text">Connect with Me</h5>
+            <a href="https://twitter.com/edwardisasian" class="twitter-follow-button" data-show-count="true" data-size="large" data-dnt="true">Follow @edwardisasian</a>
+            <br>
+            <a class="btn waves-effect waves-light red lighten-3" target="_blank" href="http://www.edwardzhu.me">My Personal Site</a>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="footer-copyright">
+        <div class="container">
+        © 2015 Edward Zhu, All rights reserved.
+        <a class="grey-text text-lighten-4 right" href="https://github.com/Dogfalo/materialize/blob/master/LICENSE">MIT License</a>
+        </div>
+      </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>if (!window.jQuery) { document.write('<script src="bin/jquery-2.1.1.min.js"><\/script>'); }
+    </script>
+    <script src="js/jquery.timeago.min.js"></script>  
+    <script src="js/prism.js"></script>
+    <script src="bin/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <!-- Twitter Button -->
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <!-- Google Plus Button-->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <!--  Google Analytics  -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-56218128-1', 'auto');
+    ga('require', 'displayfeatures');
+    ga('send', 'pageview');
+    </script>
+  </body>
+</html>
